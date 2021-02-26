@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Color Studio</title>
+    <meta charset="UTF-8" />
+
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/icons.css" rel="stylesheet">
+
+    <!-- Bootstrap & Vue.js & Bootstrap-vue -->
+    <link type="text/css" rel="stylesheet" href="/css/vendor/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/vendor/bootstrap-vue.min.css"/>
+
+    <!-- vendor js -->
+    <script src="/js/vendor/vue.min.js" defer></script>
+    <script src="/js/vendor/polyfill.min.js" defer></script>
+    <script src="/js/vendor/bootstrap-vue.min.js" defer></script>
+    <script src="/js/vendor/ra.min.js" defer></script>
+  </head>
+  <body>
+
+    <input id="file" type="file" style="visibility:hidden" />
+
+    <div id="app-gui">
+      <frame-app ref="frame-app" />
+    </div>
+
+    <script type="module">
+      import {init} from '/js/coloreditor.js';
+
+      init();
+    </script>
+
+
+<!-- <div class="btn" title="Generate this map" onclick="actions.generate()">
+  <span id="play" class="ra ra-play"></span>
+  <span id="loader" class="loader" style="display:none"></span>
+</div>
+<div class="btn" title="Upload map from file" onclick="$('#file').click();">
+  <span class="ra ra-file"></span>
+</div> 
+
+    <div class="toolbar">
+      <div class="btn btn-sm-lapos selected" id="object_mode" title="Feature editing" onclick="actions.switch_edit_mode(false)">
+        <span class="ra ra-border"></span>
+      </div>
+
+-->
+
+</body>
+</html>
