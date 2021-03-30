@@ -32,6 +32,8 @@ export const template = `
           <input type="range" v-model.number="param_y" class="form-range" min="0" max="1"  :step="1/height" :style="'height:'+height+'px'" orient="vertical">
         </div>
       </div>
+      
+      <span>U: {{ param_x }} V: {{ param_y }}</span>
     </div>
     
     <button @click="interpolate" class="btn btn-success">Generate</button>

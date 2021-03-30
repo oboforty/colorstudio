@@ -28,6 +28,27 @@ export let component = Vue.component('frame-app', {
       name: null,
       copy_mode: 'hex',
       copy_modes: ['hex', 'rgba', 'rgb', 'hsv', 'hsl', 'yuv'],
+      layout: 'meta',
+      layouts: {
+        meta: 'Metadata',
+        temp: 'Temperature',
+        colorblind: 'Colorblind class',
+        yuv: 'YUV channels',
+        hsl: 'HSL channels',
+        rgb: 'RGB channels',
+      },
+      colorblind: 'Protanopia',
+      colorblinds: [
+        'Protanopia',
+        'Protanomaly',
+        'Deuteranopia',
+        'Deuteranomaly',
+        'Tritanopia',
+        'Tritanomaly',
+        'Achromatopsia',
+        'Achromatomaly',
+        'Normal'        
+      ],
       set_rows: 0,
       set_cols: 0,
     }
@@ -38,12 +59,12 @@ export let component = Vue.component('frame-app', {
       this.newTab();
       this.renameTab(0, "Default");
 
-      Vue.nextTick(() =>{
-        if (this.active_grid) {
+      if (this.active_grid) {
+        Vue.nextTick(() =>{
           this.set_cols = this.active_grid.cols;
           this.set_rows = this.active_grid.rows;    
-        }
-      });
+        });
+      }
     },
 
     onclick({color, name, i}, grid) {

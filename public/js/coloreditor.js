@@ -37,6 +37,7 @@ window.save_project = function(app) {
   const format = app.copy_mode;
   let data = {
     "name": app.name,
+    "layout": app.layout,
     "format": app.copy_mode,
     "open_editor": app.editor,
     "grids": []
@@ -82,6 +83,7 @@ window.save_project = function(app) {
 window.load_project = function(app, data) {
   app.name = data.name;
   app.copy_mode = data.format;
+  app.layout = data.layout;
   app.editor = data.open_editor;
 
   let i = 0;
@@ -98,14 +100,14 @@ window.load_project = function(app, data) {
       let grid = app.grid(i);
       grid.cols = g.cols;
       grid.rows = g.rows;
-  
+
       for(let i of range(grid.cols*grid.rows)) {
         let cb = grid.colbox(i+1);
 
         cb.color = new Color(g.colors[i] || "white");
         cb.name = g.names[i] || null;
       }
-  
+      
       i++;
     }
   

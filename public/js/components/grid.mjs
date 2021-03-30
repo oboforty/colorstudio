@@ -11,6 +11,12 @@ export let component = Vue.component('color-grid', {
     rows: {
       default: 4,
     },
+    layout: {
+      default: "meta"
+    },
+    colorblind: {
+      default: "Protanopia"
+    }
   },
   data: function() {
     return {

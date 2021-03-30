@@ -18,7 +18,7 @@ export const template = `
               <b-button size="sm" variant="danger" @click="closeTab(i)"><span class="ra ra-delete"></span></b-button>
             </template>
             
-            <color-grid :ref="'grid'+i" @clicked="onclick($event, i)" />
+            <color-grid :ref="'grid'+i" :layout="layout" :colorblind="colorblind" @clicked="onclick($event, i)" />
           </b-tab>
   
           <template #tabs-end>
@@ -51,6 +51,20 @@ export const template = `
             </div>
           </div> -->
 
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Color Layout</span>
+            </div>
+
+            <b-form-select v-model="layout" :options="layouts"></b-form-select>
+          </div>
+          <div class="input-group mb-3" v-if="layout=='colorblind'">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Colorblind class</span>
+            </div>
+
+            <b-form-select v-model="colorblind" :options="colorblinds"></b-form-select>
+          </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Copy mode</span>

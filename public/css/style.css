@@ -74,3 +74,15 @@ input[type=range][orient=vertical]
   height: 30px;
   width: 70px;
 }
+
+.progress-sm{
+  height: 0.5rem !important;
+}
+.progress-lg{
+  height: 1.5rem !important;
+}
+
+.color-sm {
+  width: 30px;
+  height: 30px;
+}

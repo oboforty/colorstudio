@@ -75,7 +75,7 @@ export let component = Vue.component('yuv', {
       ctx.putImageData(data,0,0);
 
       // draw lines for function
-      let linecol = from_yuv(this.yuv_y, 0,0).contrast;
+      let linecol = ColorUtil.from_yuv(this.yuv_y, 0,0).contrast;
       ctx.strokeStyle = linecol;
 
       switch(this.lerp_function) {
@@ -116,13 +116,13 @@ export let component = Vue.component('yuv', {
       }, 50);
     },
 
-    lerp_yuv(pu,pv) {
+    lerp_yuv(pu, pv) {
       // lerp
       const u = lerp(-127, 127, pu);
       const v = lerp(-127, 127, pv);
       const y = lerp(0, 255, this.yuv_y);
 
-      return from_yuv(y, u, v);
+      return ColorUtil.from_yuv(y, u, v);
     },
 
     interpolate() {
